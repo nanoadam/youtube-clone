@@ -1,11 +1,16 @@
-const express = require("express");
+const express = require('express');
 const router = express.Router();
 
-// @route       /api/v1/videos
-// @desc        Get all videos
-// @access      Public
-router.get("/", (req, res) => {
-  res.send("Getting all videos");
-});
+const {
+  getVideos,
+  getVideoById,
+  addVideo,
+} = require('../../controllers/videos');
+
+router.get('/', getVideos);
+
+router.get('/', getVideoById);
+
+router.post('/', addVideo);
 
 module.exports = router;
